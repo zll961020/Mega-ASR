@@ -44,201 +44,169 @@ This repository contains the official implementation, model weights, core traini
 
 ## 👀 What You Must See
 
-<table>
-  <thead>
-    <tr>
-      <th width="160">Audio & Challenge</th>
-      <th width="260">Ground Truth</th>
-      <th width="260"><b>Mega-ASR (Ours)</b></th>
-      <th width="220">Qwen3-ASR</th>
-      <th width="220">Gemini-3-Pro</th>
-      <th width="220">Seed-ASR</th>
-      <th width="220">Whisper</th>
-    </tr>
-  </thead>
+The following examples show how Mega-ASR recovers speech content under challenging dirty speech conditions. Click **Listen** to play each audio sample.
 
-  <tbody>
-    <tr>
-      <td valign="top">
-        <a href="assets/case_study/empty_output_recovery.wav">▶️ Listen</a><br>
-        <b>Empty Output Recovery</b>
-      </td>
-      <td valign="top">
-        "...and said to him let us go and eat some honey. Whose honey? inquired Kobay cautiously. My father's, Soongoora replied. Oh, all right, I'm with you, said the tortoise eagerly, and away they went."
-      </td>
-      <td valign="top">
-        ✅ <mark><b>WER 47.1</b></mark><br>
-        <b>"He said to him let's go and eat some honey. It's honey? he inquired very cautiously. My father is Superabundant — oh, all right, I will, he said to her eagerly, and away they went."</b>
-      </td>
-      <td valign="top">
-        🔴 <b>WER 100.0</b><br>
-        <i>&lt;empty&gt;</i>
-      </td>
-      <td valign="top">
-        🔴 <b>WER 86.1</b><br>
-        "But tell me, that's how she met my father's sister. Oh, alright. I wish... I really..."
-      </td>
-      <td valign="top">
-        🔴 <b>WER 85.3</b><br>
-        "My father is. Oh, all right, I wish you can."
-      </td>
-      <td valign="top">
-        🔴 <b>WER 92.5</b><br>
-        "...to him... some honey... oh yeah..."
-      </td>
-    </tr>
+---
 
-    <tr>
-      <td valign="top">
-        <a href="assets/case_study/long_utterance_recovery.wav">▶️ Listen</a><br>
-        <b>Long-Utterance Semantic Recovery</b>
-      </td>
-      <td valign="top">
-        "To waste, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard your ship to help you in hunting the snark."
-      </td>
-      <td valign="top">
-        ✅ <mark><b>WER 5.9</b></mark><br>
-        <b>"To witness, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard of your ship to help you in hunting the snark."</b>
-      </td>
-      <td valign="top">
-        🟠 <b>WER 64.7</b><br>
-        "I skipped 40 years. Second day in here. Ever since you left, I've been a monk..."
-      </td>
-      <td valign="top">
-        🟠 <b>WER 64.7</b><br>
-        "I spent forty years at sea and never seen a rougher than the day that you took me aboard your ship..."
-      </td>
-      <td valign="top">
-        🟡 <b>WER 38.2</b><br>
-        "To wait. I skip forty years. Saturday and years. And proceed without further remark..."
-      </td>
-      <td valign="top">
-        🟠 <b>WER 71.5</b><br>
-        "I skip forty years... to the day you took me on a ship... to hunt the shark."
-      </td>
-    </tr>
+<details open>
+<summary><b>▶️ Empty Output Recovery</b></summary>
 
-    <tr>
-      <td valign="top">
-        <a href="assets/case_study/babble_noise_hallucination.wav">▶️ Listen</a><br>
-        <b>Babble Noise & Hallucination</b>
-      </td>
-      <td valign="top">
-        "The friendly gang left the drug store."
-      </td>
-      <td valign="top">
-        ✅ <mark><b>WER 8.0</b></mark><br>
-        <b>"The friendly gang left the drug store."</b>
-      </td>
-      <td valign="top">
-        🟠 <b>WER 57.1</b><br>
-        "It's a friendly gang. That's the drug gang."
-      </td>
-      <td valign="top">
-        🟡 <b>WER 42.9</b><br>
-        "Friendly gang left the drugs."
-      </td>
-      <td valign="top">
-        🟢 <b>WER 28.6</b><br>
-        "The friendly gang left the drugstore."
-      </td>
-      <td valign="top">
-        🟠 <b>WER 62.3</b><br>
-        "A friendly young man left the drug store."
-      </td>
-    </tr>
+<br>
 
-    <tr>
-      <td valign="top">
-        <a href="assets/case_study/restaurant_noise_recovery.wav">▶️ Listen</a><br>
-        <b>Restaurant Noise Recovery</b>
-      </td>
-      <td valign="top">
-        "The set of china hit the floor with a crash."
-      </td>
-      <td valign="top">
-        ✅ <mark><b>WER 8.0</b></mark><br>
-        <b>"The set of china hit the floor with a crash."</b>
-      </td>
-      <td valign="top">
-        🟡 <b>WER 40.0</b><br>
-        "The bed is fine. It hit the floor with a crash."
-      </td>
-      <td valign="top">
-        🔴 <b>WER 100.0</b><br>
-        "He said it's fine I hit the forward slash."
-      </td>
-      <td valign="top">
-        🟢 <b>WER 20.0</b><br>
-        "The sound of china hits the floor with a crash."
-      </td>
-      <td valign="top">
-        🟠 <b>WER 55.0</b><br>
-        "The chef of China hit the floor with a clash."
-      </td>
-    </tr>
+🎧 [Listen to audio](assets/case_study/empty_output_recovery.wav)
 
-    <tr>
-      <td valign="top">
-        <a href="assets/case_study/financial_entity_recovery.wav">▶️ Listen</a><br>
-        <b>Financial Entity Recovery</b>
-      </td>
-      <td valign="top">
-        "Among export-led electrical and computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty."
-      </td>
-      <td valign="top">
-        ✅ <mark><b>WER 11.1</b></mark><br>
-        <b>"Among export-led computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty."</b>
-      </td>
-      <td valign="top">
-        🟡 <b>WER 38.9</b><br>
-        "Among export-led computer makers, Japan VictorNet sold fifty-two thousand three hundred fifty."
-      </td>
-      <td valign="top">
-        🟡 <b>WER 35.7</b><br>
-        "Among export-led computer makers, Japan Victor Co. fell 50 to 2,350 yen."
-      </td>
-      <td valign="top">
-        🟠 <b>WER 50.0</b><br>
-        "Among export-led in computer makers, Japan Victor Company sell 50 to 2300 unit."
-      </td>
-      <td valign="top">
-        🟠 <b>WER 66.7</b><br>
-        "Among exporters, computer makers in Japan victor companies sold fifty..."
-      </td>
-    </tr>
+**Ground Truth**
 
-    <tr>
-      <td valign="top">
-        <a href="assets/case_study/phrase_recovery.wav">▶️ Listen</a><br>
-        <b>Phrase Recovery</b>
-      </td>
-      <td valign="top">
-        "Has exposure really been reduced?"
-      </td>
-      <td valign="top">
-        ✅ <mark><b>WER 8.0</b></mark><br>
-        <b>"Has exposure really been reduced."</b>
-      </td>
-      <td valign="top">
-        🟡 <b>WER 40.0</b><br>
-        "Has exposure really done you?"
-      </td>
-      <td valign="top">
-        🔴 <b>WER 80.0</b><br>
-        "Has the closure really affected you?"
-      </td>
-      <td valign="top">
-        🟠 <b>WER 60.0</b><br>
-        "Has exposure to beauty products."
-      </td>
-      <td valign="top">
-        🔴 <b>WER 78.5</b><br>
-        "Have those who really been refused?"
-      </td>
-    </tr>
-  </tbody>
-</table>
+> "...and said to him let us go and eat some honey. Whose honey? inquired Kobay cautiously. My father's, Soongoora replied. Oh, all right, I'm with you, said the tortoise eagerly, and away they went."
+
+**Mega-ASR (Ours)**  
+✅ <mark><b>WER 47.1</b></mark>
+
+> **"He said to him let's go and eat some honey. It's honey? he inquired very cautiously. My father is Superabundant — oh, all right, I will, he said to her eagerly, and away they went."**
+
+| Model | WER | Output |
+|---|---:|---|
+| Qwen3-ASR | 🔴 **100.0** | <i>&lt;empty&gt;</i> |
+| Gemini-3-Pro | 🔴 **86.1** | "But tell me, that's how she met my father's sister. Oh, alright. I wish... I really..." |
+| Seed-ASR | 🔴 **85.3** | "My father is. Oh, all right, I wish you can." |
+| Whisper | 🔴 **92.5** | "...to him... some honey... oh yeah..." |
+
+</details>
+
+---
+
+<details>
+<summary><b>▶️ Long-Utterance Semantic Recovery</b></summary>
+
+<br>
+
+🎧 [Listen to audio](assets/case_study/long_utterance_recovery.wav)
+
+**Ground Truth**
+
+> "To waste, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard your ship to help you in hunting the snark."
+
+**Mega-ASR (Ours)**  
+✅ <mark><b>WER 5.9</b></mark>
+
+> **"To witness, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard of your ship to help you in hunting the snark."**
+
+| Model | WER | Output |
+|---|---:|---|
+| Qwen3-ASR | 🟠 **64.7** | "I skipped 40 years. Second day in here. Ever since you left, I've been a monk..." |
+| Gemini-3-Pro | 🟠 **64.7** | "I spent forty years at sea and never seen a rougher than the day that you took me aboard your ship..." |
+| Seed-ASR | 🟡 **38.2** | "To wait. I skip forty years. Saturday and years. And proceed without further remark..." |
+| Whisper | 🟠 **71.5** | "I skip forty years... to the day you took me on a ship... to hunt the shark." |
+
+</details>
+
+---
+
+<details>
+<summary><b>▶️ Babble Noise & Hallucination</b></summary>
+
+<br>
+
+🎧 [Listen to audio](assets/case_study/babble_noise_hallucination.wav)
+
+**Ground Truth**
+
+> "The friendly gang left the drug store."
+
+**Mega-ASR (Ours)**  
+✅ <mark><b>WER 8.0</b></mark>
+
+> **"The friendly gang left the drug store."**
+
+| Model | WER | Output |
+|---|---:|---|
+| Qwen3-ASR | 🟠 **57.1** | "It's a friendly gang. That's the drug gang." |
+| Gemini-3-Pro | 🟡 **42.9** | "Friendly gang left the drugs." |
+| Seed-ASR | 🟢 **28.6** | "The friendly gang left the drugstore." |
+| Whisper | 🟠 **62.3** | "A friendly young man left the drug store." |
+
+</details>
+
+---
+
+<details>
+<summary><b>▶️ Restaurant Noise Recovery</b></summary>
+
+<br>
+
+🎧 [Listen to audio](assets/case_study/restaurant_noise_recovery.wav)
+
+**Ground Truth**
+
+> "The set of china hit the floor with a crash."
+
+**Mega-ASR (Ours)**  
+✅ <mark><b>WER 8.0</b></mark>
+
+> **"The set of china hit the floor with a crash."**
+
+| Model | WER | Output |
+|---|---:|---|
+| Qwen3-ASR | 🟡 **40.0** | "The bed is fine. It hit the floor with a crash." |
+| Gemini-3-Pro | 🔴 **100.0** | "He said it's fine I hit the forward slash." |
+| Seed-ASR | 🟢 **20.0** | "The sound of china hits the floor with a crash." |
+| Whisper | 🟠 **55.0** | "The chef of China hit the floor with a clash." |
+
+</details>
+
+---
+
+<details>
+<summary><b>▶️ Financial Entity Recovery</b></summary>
+
+<br>
+
+🎧 [Listen to audio](assets/case_study/financial_entity_recovery.wav)
+
+**Ground Truth**
+
+> "Among export-led electrical and computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty."
+
+**Mega-ASR (Ours)**  
+✅ <mark><b>WER 11.1</b></mark>
+
+> **"Among export-led computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty."**
+
+| Model | WER | Output |
+|---|---:|---|
+| Qwen3-ASR | 🟡 **38.9** | "Among export-led computer makers, Japan VictorNet sold fifty-two thousand three hundred fifty." |
+| Gemini-3-Pro | 🟡 **35.7** | "Among export-led computer makers, Japan Victor Co. fell 50 to 2,350 yen." |
+| Seed-ASR | 🟠 **50.0** | "Among export-led in computer makers, Japan Victor Company sell 50 to 2300 unit." |
+| Whisper | 🟠 **66.7** | "Among exporters, computer makers in Japan victor companies sold fifty..." |
+
+</details>
+
+---
+
+<details>
+<summary><b>▶️ Phrase Recovery</b></summary>
+
+<br>
+
+🎧 [Listen to audio](assets/case_study/phrase_recovery.wav)
+
+**Ground Truth**
+
+> "Has exposure really been reduced?"
+
+**Mega-ASR (Ours)**  
+✅ <mark><b>WER 8.0</b></mark>
+
+> **"Has exposure really been reduced."**
+
+| Model | WER | Output |
+|---|---:|---|
+| Qwen3-ASR | 🟡 **40.0** | "Has exposure really done you?" |
+| Gemini-3-Pro | 🔴 **80.0** | "Has the closure really affected you?" |
+| Seed-ASR | 🟠 **60.0** | "Has exposure to beauty products." |
+| Whisper | 🔴 **78.5** | "Have those who really been refused?" |
+
+</details>
 
 ## 🔥🔥🔥 News!!
 
