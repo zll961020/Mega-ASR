@@ -44,7 +44,7 @@ This repository contains the official implementation, model weights, core traini
 
 ## 👀 What You Must See
 
-The following examples show how Mega-ASR recovers speech content under challenging dirty speech conditions. Click **Listen** to play each audio sample.
+The following examples compare Mega-ASR with several representative ASR systems under challenging dirty speech conditions. Click **Listen** to play each audio sample.
 
 ---
 
@@ -55,17 +55,10 @@ The following examples show how Mega-ASR recovers speech content under challengi
 
 🎧 [Listen to audio](assets/case_study/empty_output_recovery.wav)
 
-**Ground Truth**
-
-> "...and said to him let us go and eat some honey. Whose honey? inquired Kobay cautiously. My father's, Soongoora replied. Oh, all right, I'm with you, said the tortoise eagerly, and away they went."
-
-**Mega-ASR (Ours)**  
-✅ <mark><b>WER 47.1</b></mark>
-
-> **"He said to him let's go and eat some honey. It's honey? he inquired very cautiously. My father is Superabundant — oh, all right, I will, he said to her eagerly, and away they went."**
-
-| Model | WER | Output |
+| Model | WER | Transcript |
 |---|---:|---|
+| **Ground Truth** | Reference | "...and said to him let us go and eat some honey. Whose honey? inquired Kobay cautiously. My father's, Soongoora replied. Oh, all right, I'm with you, said the tortoise eagerly, and away they went." |
+| **Mega-ASR (Ours)** | ✅ <mark><b>47.1</b></mark> | <b>"He said to him let's go and eat some honey. It's honey? he inquired very cautiously. My father is Superabundant — oh, all right, I will, he said to her eagerly, and away they went."</b> |
 | Qwen3-ASR | 🔴 **100.0** | <i>&lt;empty&gt;</i> |
 | Gemini-3-Pro | 🔴 **86.1** | "But tell me, that's how she met my father's sister. Oh, alright. I wish... I really..." |
 | Seed-ASR | 🔴 **85.3** | "My father is. Oh, all right, I wish you can." |
@@ -82,17 +75,10 @@ The following examples show how Mega-ASR recovers speech content under challengi
 
 🎧 [Listen to audio](assets/case_study/long_utterance_recovery.wav)
 
-**Ground Truth**
-
-> "To waste, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard your ship to help you in hunting the snark."
-
-**Mega-ASR (Ours)**  
-✅ <mark><b>WER 5.9</b></mark>
-
-> **"To witness, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard of your ship to help you in hunting the snark."**
-
-| Model | WER | Output |
+| Model | WER | Transcript |
 |---|---:|---|
+| **Ground Truth** | Reference | "To waste, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard your ship to help you in hunting the snark." |
+| **Mega-ASR (Ours)** | ✅ <mark><b>5.9</b></mark> | <b>"To witness, I skip forty years, said the baker in tears, and proceed without further remark to the day when you took me aboard of your ship to help you in hunting the snark."</b> |
 | Qwen3-ASR | 🟠 **64.7** | "I skipped 40 years. Second day in here. Ever since you left, I've been a monk..." |
 | Gemini-3-Pro | 🟠 **64.7** | "I spent forty years at sea and never seen a rougher than the day that you took me aboard your ship..." |
 | Seed-ASR | 🟡 **38.2** | "To wait. I skip forty years. Saturday and years. And proceed without further remark..." |
@@ -109,17 +95,10 @@ The following examples show how Mega-ASR recovers speech content under challengi
 
 🎧 [Listen to audio](assets/case_study/babble_noise_hallucination.wav)
 
-**Ground Truth**
-
-> "The friendly gang left the drug store."
-
-**Mega-ASR (Ours)**  
-✅ <mark><b>WER 8.0</b></mark>
-
-> **"The friendly gang left the drug store."**
-
-| Model | WER | Output |
+| Model | WER | Transcript |
 |---|---:|---|
+| **Ground Truth** | Reference | "The friendly gang left the drug store." |
+| **Mega-ASR (Ours)** | ✅ <mark><b>8.0</b></mark> | <b>"The friendly gang left the drug store."</b> |
 | Qwen3-ASR | 🟠 **57.1** | "It's a friendly gang. That's the drug gang." |
 | Gemini-3-Pro | 🟡 **42.9** | "Friendly gang left the drugs." |
 | Seed-ASR | 🟢 **28.6** | "The friendly gang left the drugstore." |
@@ -136,17 +115,10 @@ The following examples show how Mega-ASR recovers speech content under challengi
 
 🎧 [Listen to audio](assets/case_study/restaurant_noise_recovery.wav)
 
-**Ground Truth**
-
-> "The set of china hit the floor with a crash."
-
-**Mega-ASR (Ours)**  
-✅ <mark><b>WER 8.0</b></mark>
-
-> **"The set of china hit the floor with a crash."**
-
-| Model | WER | Output |
+| Model | WER | Transcript |
 |---|---:|---|
+| **Ground Truth** | Reference | "The set of china hit the floor with a crash." |
+| **Mega-ASR (Ours)** | ✅ <mark><b>8.0</b></mark> | <b>"The set of china hit the floor with a crash."</b> |
 | Qwen3-ASR | 🟡 **40.0** | "The bed is fine. It hit the floor with a crash." |
 | Gemini-3-Pro | 🔴 **100.0** | "He said it's fine I hit the forward slash." |
 | Seed-ASR | 🟢 **20.0** | "The sound of china hits the floor with a crash." |
@@ -163,17 +135,10 @@ The following examples show how Mega-ASR recovers speech content under challengi
 
 🎧 [Listen to audio](assets/case_study/financial_entity_recovery.wav)
 
-**Ground Truth**
-
-> "Among export-led electrical and computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty."
-
-**Mega-ASR (Ours)**  
-✅ <mark><b>WER 11.1</b></mark>
-
-> **"Among export-led computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty."**
-
-| Model | WER | Output |
+| Model | WER | Transcript |
 |---|---:|---|
+| **Ground Truth** | Reference | "Among export-led electrical and computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty." |
+| **Mega-ASR (Ours)** | ✅ <mark><b>11.1</b></mark> | <b>"Among export-led computer makers, Japan Victor Company fell fifty to two thousand three hundred twenty."</b> |
 | Qwen3-ASR | 🟡 **38.9** | "Among export-led computer makers, Japan VictorNet sold fifty-two thousand three hundred fifty." |
 | Gemini-3-Pro | 🟡 **35.7** | "Among export-led computer makers, Japan Victor Co. fell 50 to 2,350 yen." |
 | Seed-ASR | 🟠 **50.0** | "Among export-led in computer makers, Japan Victor Company sell 50 to 2300 unit." |
@@ -190,17 +155,10 @@ The following examples show how Mega-ASR recovers speech content under challengi
 
 🎧 [Listen to audio](assets/case_study/phrase_recovery.wav)
 
-**Ground Truth**
-
-> "Has exposure really been reduced?"
-
-**Mega-ASR (Ours)**  
-✅ <mark><b>WER 8.0</b></mark>
-
-> **"Has exposure really been reduced."**
-
-| Model | WER | Output |
+| Model | WER | Transcript |
 |---|---:|---|
+| **Ground Truth** | Reference | "Has exposure really been reduced?" |
+| **Mega-ASR (Ours)** | ✅ <mark><b>8.0</b></mark> | <b>"Has exposure really been reduced."</b> |
 | Qwen3-ASR | 🟡 **40.0** | "Has exposure really done you?" |
 | Gemini-3-Pro | 🔴 **80.0** | "Has the closure really affected you?" |
 | Seed-ASR | 🟠 **60.0** | "Has exposure to beauty products." |
