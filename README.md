@@ -1,17 +1,30 @@
-# Mega-ASR: Towards In-the-Wild Speech Recognition
+<p align="center">
+  <img src="assets/mega_asr_logo.png" alt="Mega-ASR Logo" width="220">
+</p>
+
+<h1 align="center">Mega-ASR: Towards In-the-Wild Speech Recognition</h1>
 
 <p align="center">
   <b>Robust Automatic Speech Recognition for Complex Real-World Acoustic Scenarios</b>
 </p>
 
 <p align="center">
+  <a href="https://xzf-thu.github.io/Mega-ASR/"><b>Homepage</b></a> |
+  <a href="#model-download"><b>Model Download</b></a> |
+  <a href="#installation"><b>Installation</b></a> |
+  <a href="#inference"><b>Inference</b></a> |
+  <a href="#evaluation"><b>Evaluation</b></a>
+</p>
+
+<p align="center">
+  <a href="https://xzf-thu.github.io/Mega-ASR/">
+    <img src="https://img.shields.io/badge/Project-Homepage-purple">
+  </a>
   <img src="https://img.shields.io/badge/Python-3.10+-blue">
   <img src="https://img.shields.io/badge/PyTorch-2.x-orange">
   <img src="https://img.shields.io/badge/ASR-Robust%20Speech%20Recognition-brightgreen">
   <img src="https://img.shields.io/badge/License-Apache--2.0-green">
 </p>
-
-
 ## Introduction
 
 Mega-ASR is a speech recognition model designed for complex dirty speech scenarios, including noise, far-field speech, distortion, stuttering, echo, obstruction, and mixed acoustic interference. Compared with general-purpose ASR models, Mega-ASR focuses on stable recognition under medium- and high-error-rate audio conditions, achieving lower word error rates (WER) on challenging real-world speech.
@@ -28,6 +41,18 @@ This repository is currently under active development.
 - **SFT + RL robustness training**: a two-stage pipeline for improving recognition stability under complex acoustic conditions.
 - **WER evaluation toolkit**: standard scripts for reproducible ASR robustness evaluation.
 - **DAPO-LoRA roadmap**: reinforcement learning training code will be released in a future update.
+
+## Model Download
+
+We provide two Mega-ASR model variants for different usage scenarios.
+
+| Model | Description | Download |
+|---|---|---|
+| **Mega-ASR for Dirty** | Optimized for dirty speech scenarios, including noisy, far-field, low-volume, degraded, and hard-to-recognize audio. | Coming soon |
+| **Mega-ASR for All** | Built upon Mega-ASR for Dirty with a lightweight routing module that automatically distinguishes clean speech from degraded speech and selects the appropriate recognition path. | Coming soon |
+
+After downloading the model weights, please specify the model path in the corresponding inference script or pass it through command-line arguments.
+
 
 ## Project Structure
 
