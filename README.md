@@ -336,6 +336,31 @@ The DG-WGPO reinforcement learning module will be released in a future update.
 ## Evaluation
 
 
+We provide a simple evaluation script for running ASR inference and computing WER/CER.  We use Qwen3-ASR as the default inference model. The input file should be a JSONL file. Each line only needs two required fields:
+
+```json
+{"audio": "examples/audio/noise.wav", "answer": "I usually take the quieter road home because the main street gets crowded after work."}
+```
+
+
+The script will keep all original fields and append the following fields to the output JSONL:
+
+```text
+prediction  # model transcription
+metric      # "wer" for English samples, "cer" for Chinese samples
+wer         # WER/CER score value; CER is also stored in this field for compatibility
+num_edits   # edit distance between prediction and ground truth
+ref_len     # number of reference words or characters
+```
+We can use the following command to start it.
+
+```bash
+python eval/evaluate_asr.py \
+  --model_path Qwen3-ASR-1.7B \
+  --input_jsonl examples/test.jsonl \
+  --output_jsonl outputs/pred_with_wer.jsonl
+```
+
 <p align="center">
   <img src="/docs/assets/training.png" alt="Mega-ASR Training" width="100%">
 </p>
@@ -384,12 +409,10 @@ This project will be released under the **Apache-2.0 License**. You can do every
   year={2024}
 }
 ```
-
-<a href="https://www.star-history.com/?repos=mega-asr%2Fmega-asr&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=gpt-omni%2Fmini-omi%2Cxzf-thu%2FMega-ASR&type=date&legend=bottom-right">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mega-asr/mega-asr&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mega-asr/mega-asr&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mega-asr/mega-asr&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=gpt-omni/mini-omi%2Cxzf-thu/Mega-ASR&type=date&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=gpt-omni/mini-omi%2Cxzf-thu/Mega-ASR&type=date&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=gpt-omni/mini-omi%2Cxzf-thu/Mega-ASR&type=date&legend=bottom-right" />
  </picture>
 </a>
-

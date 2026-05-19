@@ -7,4 +7,12 @@ psutil
 matplotlib
 soundfile
 streamlit
+<<<<<<< HEAD
 streamlit-mic-recorder
+=======
+peft
+datasets
+wandb
+whisper_normalizer
+editdistance
+>>>>>>> f3ad5928622d5ca17f5398e0affbaa4b50775a84
