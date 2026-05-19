@@ -11,20 +11,17 @@ We introduce **MEGA-ASR**, the first foundation ASR model to target **full-scena
 
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2604.08000">Technical Report 📖</a>
-  /
-  <a href="YOUR_VOICES_IN_THE_WILD_2M_LINK">Voices-in-the-wild-2M 🤗</a>
-  /
-  <a href="YOUR_MEGA_ASR_WEIGHTS_LINK">Mega-ASR Weights 🤗</a>
-  /
-  <a href="YOUR_VOICES_IN_THE_WILD_BENCH_LINK">Voices-in-the-Wild-Bench 🏆</a>
+  <a href="https://arxiv.org/pdf/2508.15827">Technical Report 📖</a> /
+  <a href="https://huggingface.co/datasets/zhifeixie/Voices-in-the-Wild-2M">Voices-in-the-wild-2M 🤗</a> /
+  <a href="https://huggingface.co/zhifeixie/Mega-ASR">Mega-ASR Weights 🤗</a> /
+  <a href="https://github.com/xzf-thu/Voices-in-the-Wild-Bench">Voices-in-the-Wild-Bench 🏆</a>
 </p>
 
 <p align="center">
-  <a href="YOUR_WECHAT_LINK_OR_QR_CODE">
+  <a href="https://xzf-thu.github.io/Mega-ASR/community">
     <img src="https://img.shields.io/badge/WeChat-Join%20Group-07C160?logo=wechat&logoColor=white">
   </a>
-  <a href="YOUR_PROJECT_PAGE_LINK">
+  <a href="https://xzf-thu.github.io/Mega-ASR/">
     <img src="https://img.shields.io/badge/Project-Page-blue">
   </a>
   <a href="https://x.com/XieZhifei14110">
